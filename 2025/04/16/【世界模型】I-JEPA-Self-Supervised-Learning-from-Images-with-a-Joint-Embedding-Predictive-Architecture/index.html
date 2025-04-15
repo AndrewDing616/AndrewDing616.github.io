@@ -19,24 +19,28 @@
   <meta name="author" content="AndrewDing">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Wait, coming soon..">
+    <meta name="description" content="Introduction:图像领域有两种常用的自监督学习方法：基于不变性的方法（invariance-based methods） 和 生成式方法（generative methods）。  基于不变性的预训练方法优化编码器，使其对同一图像的两个或多个视图产生相似的嵌入，学习到的嵌入具有高级别语义，但是引入了较强的偏差对于下游任务或不同数据分布。同时这个偏差很难泛化需要不同抽象级别的人物。（例如，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Coming soon">
-<meta property="og:url" content="http://example.com/2025/01/17/Coming-soon/index.html">
+<meta property="og:title" content="【世界模型】I-JEPA: Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture">
+<meta property="og:url" content="http://example.com/2025/04/16/%E3%80%90%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E3%80%91I-JEPA-Self-Supervised-Learning-from-Images-with-a-Joint-Embedding-Predictive-Architecture/index.html">
 <meta property="og:site_name" content="zj&#39;s blog">
-<meta property="og:description" content="Wait, coming soon..">
+<meta property="og:description" content="Introduction:图像领域有两种常用的自监督学习方法：基于不变性的方法（invariance-based methods） 和 生成式方法（generative methods）。  基于不变性的预训练方法优化编码器，使其对同一图像的两个或多个视图产生相似的嵌入，学习到的嵌入具有高级别语义，但是引入了较强的偏差对于下游任务或不同数据分布。同时这个偏差很难泛化需要不同抽象级别的人物。（例如，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/imgs/image.png">
-<meta property="article:published_time" content="2025-01-17T13:20:50.000Z">
-<meta property="article:modified_time" content="2025-01-17T05:58:29.855Z">
+<meta property="og:image" content="http://example.com/imgs/image-1.png">
+<meta property="og:image" content="http://example.com/imgs/image-2.png">
+<meta property="og:image" content="http://example.com/imgs/image-3.png">
+<meta property="og:image" content="http://example.com/imgs/image-4.png">
+<meta property="og:image" content="http://example.com/imgs/image-5.png">
+<meta property="article:published_time" content="2025-04-15T21:01:36.000Z">
+<meta property="article:modified_time" content="2025-04-15T13:05:56.122Z">
 <meta property="article:author" content="AndrewDing">
-<meta property="article:tag" content="hello world">
+<meta property="article:tag" content="论文阅读笔记">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/imgs/image.png">
+<meta name="twitter:image" content="http://example.com/imgs/image-1.png">
   
   
   
-  <title>Coming soon - zj&#39;s blog</title>
+  <title>【世界模型】I-JEPA: Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture - zj&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +206,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Coming soon"></span>
+            <span id="subtitle" data-typed-text="【世界模型】I-JEPA: Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture"></span>
           
         </div>
 
@@ -213,8 +217,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-17 13:20" pubdate>
-          2025年1月17日 下午
+        <time datetime="2025-04-15 21:01" pubdate>
+          2025年4月15日 晚上
         </time>
       </span>
     
@@ -225,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2 字
+          1.1k 字
         
       </span>
     
@@ -236,7 +240,7 @@
         
         
         
-          1 分钟
+          10 分钟
         
       </span>
     
@@ -273,12 +277,35 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Coming soon</h1>
+            <h1 id="seo-header">【世界模型】I-JEPA: Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Wait-coming-soon"><a href="#Wait-coming-soon" class="headerlink" title="Wait, coming soon.."></a>Wait, coming soon..</h1><p><img src="/../imgs/image.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h2><p>图像领域有两种常用的自监督学习方法：基于不变性的方法（invariance-based methods） 和 生成式方法（generative methods）。</p>
+<ul>
+<li>基于不变性的预训练方法优化编码器，使其对同一图像的两个或多个视图产生相似的嵌入，学习到的嵌入具有高级别语义，但是<mark style="background: #FFB8EBA6;">引入了较强的偏差对于下游任务或不同数据分布</mark>。同时这个偏差很难泛化需要不同抽象级别的人物。（例如，图像分类可能不在乎图像的精细边界；但实例分割则需要精准地保留形状和边缘信息。）而且这种增强方式很难扩展到其他模态。</li>
+<li><mark style="background: #FFF3A3A6;">生成式方法</mark>则类似于认知学习理论中的： <strong>大脑通过构建和不断调整“对世界的内部模型”来理解和预测感官输入</strong>。其通过删除或损坏输入来学习预测损坏的内容。</li>
+</ul>
+<p>下面讨论生成式方法的缺点👀</p>
+<p>基于掩码的预训练任务需要更少的先验知识，跨模态泛化性也更好，但是得到的表征通常具有更低级的语义；并且在一些评估体系下差于invariance-based方法。</p>
+<blockquote>
+<p>低级对应图像中的基本视觉元素；高级指的是图像或感知内容中的<strong>抽象概念或语义实体</strong>或涉及上下文和关系理解。</p>
+</blockquote>
+<p>这篇文章<strong>探索如何在不使用通过图像变换编码得到的额外先验知识的情况下，提高自监督表示的语义水平</strong>。💡<br>提出了I-JEPA（a joint-embedding predictive architecture for images）<br>IDEA：在抽象的语义空间中预测缺失信息。</p>
+<blockquote>
+<p>给定单个上下文块，预测同一图像中不同目标块的表示，其中目标表示由学习的目标编码器网络计算得到。</p>
+</blockquote>
+<p>和常规的生成式方法有什么区别呢？<br>常规的生成式方法在pixel&#x2F;token空间预测，而I-JEPA利用抽象的预测目标，可以消除不必要的像素级细节，从而使模型学习到更多的语义特征。<br>另外I-JEPA提出了<strong>多块掩码策略</strong>，证明了使用信息丰富（空间分布）的上下文块来预测图像中足够大的目标块的重要性。</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p><strong>自监督学习</strong>是一种表征学习（representation learning）的方法，其目标是让系统学会捕捉输入之间的关系。<br>下面展示了自监督学习的一些框架，有生成式和非生成式方法。<br><img src="/../imgs/image-1.png" srcset="/img/loading.gif" lazyload><br>(a) 基于不变性的预训练可以使用联合嵌入架构，该架构学习输出相容输入的相似嵌入，和不相容输入的不相似嵌入。相容的x，y对通常是通过对同一输入图像随机应用人工数据增强来构建的。</p>
+<blockquote>
+<p>可能存在表征崩溃的问题，即编码器产生一个恒定的输出，与输入无关。（解决方法：对比损失、聚类增熵、非对称编码器……）</p>
+</blockquote>
+<p>(b) 生成式框架则直接用相容的信号$x$来重建信号$y$，通过使用一个解码器，该解码器以额外的变量$z$作为条件来促进重建。<br>在CV领域，常用的做法是掩码学习，使用掩码技术来构造相容的对，条件变量则为可学习的掩码和位置token。</p>
+<p>(c) 联合嵌入预测架构(JEPA)，与生成式框架的区别是，loss是在潜入空间计算的。与联合潜入框架的区别是，JEPAs 并不追求对一组手工设计的数据增强不变的表示，而是寻求在给定附加信息 z 的条件下，能够相互预测的表示。</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p>给定一个语义block，预测同一张图像中的多样的目标block的表征。这里两个编码器和预测器都是ViT架构的。<br><img src="/../imgs/image-2.png" srcset="/img/loading.gif" lazyload><br>语义block和目标block获取方式如下：<br><img src="/../imgs/image-3.png" srcset="/img/loading.gif" lazyload><br>预测的时候，输入预测器有上下文编码器的输出和我们希望预测的每个patch的掩码token，输出patch-level的预测结果。掩码token通过一个共享的可学习向量和一个附加的位置嵌入进行参数化。</p>
+<p>训练时预测器、语义编码器的参数进行基于梯度优化，目标编码器的参数通过语义编码器的参数进行EMA更新。</p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p><img src="/../imgs/image-4.png" srcset="/img/loading.gif" lazyload><br><img src="/../imgs/image-5.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -291,7 +318,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/hello-world/" class="print-no-link">#hello world</a>
+        <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="print-no-link">#论文阅读笔记</a>
       
     </div>
   
@@ -303,8 +330,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Coming soon</div>
-      <div>http://example.com/2025/01/17/Coming-soon/</div>
+      <div>【世界模型】I-JEPA: Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</div>
+      <div>http://example.com/2025/04/16/【世界模型】I-JEPA-Self-Supervised-Learning-from-Images-with-a-Joint-Embedding-Predictive-Architecture/</div>
     </div>
     <div class="license-meta">
       
@@ -316,7 +343,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月17日</div>
+          <div>2025年4月15日</div>
         </div>
       
       
@@ -348,15 +375,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/16/%E3%80%90%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E3%80%91I-JEPA-Self-Supervised-Learning-from-Images-with-a-Joint-Embedding-Predictive-Architecture/" title="【世界模型】I-JEPA: Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【世界模型】I-JEPA: Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2025/01/17/Coming-soon/" title="Coming soon">
+                        <span class="hidden-mobile">Coming soon</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
